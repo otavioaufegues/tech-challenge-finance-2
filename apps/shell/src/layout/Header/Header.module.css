@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e293b;
+  color: #fff;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.subtitle {
+  margin-top: 4px;
+  color: #cbd5f5;
+}
+
+.balance {
+  text-align: right;
+}
+
+.balance span {
+  display: block;
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+.balance strong {
+  font-size: 24px;
+}
