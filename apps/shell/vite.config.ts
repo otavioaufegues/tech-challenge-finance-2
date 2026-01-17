@@ -8,8 +8,8 @@ export default defineConfig({
     federation({
       name: "shell",
       remotes: {
-        transactions: "http://localhost:5001/assets/remoteEntry.js",
-        analytics: "http://localhost:5002/assets/remoteEntry.js",
+        transactions: "http://localhost:5171/assets/remoteEntry.js",
+        analytics: "http://localhost:5172/assets/remoteEntry.js",
       },
       shared: ["react", "react-dom"],
     }),

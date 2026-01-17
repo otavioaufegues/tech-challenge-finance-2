@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  shell:
+    build: ./apps/shell
+    ports:
+      - "5170:5170"
+    volumes:
+      - ./apps/shell:/app
+      - /app/node_modules
+    depends_on:
+      - analytics
+      - transactions
+
+  analytics:
+    build: ./apps/analytics
+    ports:
+      - "5172:5172"
+    volumes:
+      - ./apps/analytics:/app
+      - /app/node_modules
+
+  transactions:
+    build: ./apps/transactions
+    ports:
+      - "5171:5171"
+    volumes:
+      - ./apps/transactions:/app
+      - /app/node_modules

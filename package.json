@@ -6,9 +6,9 @@
   "scripts": {
     "dev:shell": "npm run dev -w shell",
     "build:transactions": "npm run build -w transactions",
-    "preview:transactions": "npm run preview -w transactions -- --port 5001 --strictPort",
+    "preview:transactions": "npm run preview -w transactions -- --port 5171 --strictPort",
     "build:analytics": "npm run build -w analytics",
-    "preview:analytics": "npm run preview -w analytics -- --port 5002 --strictPort",
+    "preview:analytics": "npm run preview -w analytics -- --port 5172 --strictPort",
     "start": "echo 'Certifique-se de buildar o analytics primeiro!'"
   },
   "keywords": [],
