@@ -1,0 +1,21 @@
+{
+  "name": "finance-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:shell": "npm run dev -w shell",
+    "build:transactions": "npm run build -w transactions",
+    "preview:transactions": "npm run preview -w transactions -- --port 5001 --strictPort",
+    "build:analytics": "npm run build -w analytics",
+    "preview:analytics": "npm run preview -w analytics -- --port 5002 --strictPort",
+    "start": "echo 'Certifique-se de buildar o analytics primeiro!'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "workspaces": [
+    "apps/*"
+  ]
+}
