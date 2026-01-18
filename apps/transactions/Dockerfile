@@ -5,10 +5,4 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 
-COPY . .
-
-RUN npm run build
-
-EXPOSE 5171
-
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0"]
+CMD ["npm", "run", "dev", "--", "--host"]
