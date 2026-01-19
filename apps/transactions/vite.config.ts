@@ -10,12 +10,13 @@ export default defineConfig({
       filename: "remoteEntry.js",
       exposes: {
         "./App": "./src/App.tsx",
-        './store': './src/store/useTransactionStore.ts',
+        "./store": "./src/store/index.ts",
       },
-      shared: ["react", "react-dom", 'zustand'],
+      shared: {
+        react: { singleton: true },
+        "react-dom": { singleton: true },
+        zustand: { singleton: true },
+      } as any,
     }),
   ],
-  build: {
-    target: "esnext",
-  },
 });

@@ -11,7 +11,11 @@ export default defineConfig({
         transactions: "http://localhost:5171/assets/remoteEntry.js",
         analytics: "http://localhost:5172/assets/remoteEntry.js",
       },
-      shared: ["react", "react-dom"],
+      shared: {
+        react: { singleton: true },
+        "react-dom": { singleton: true },
+        zustand: { singleton: true },
+      } as any,
     }),
   ],
   build: {
