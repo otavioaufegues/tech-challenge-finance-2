@@ -1,19 +1,20 @@
+import { Suspense } from "react";
 import styles from "./App.module.css";
-import { Header } from "./layout/Header";
-import { Card } from "./layout/Card";
 
 import { useTransactionStore } from "transactions/store";
+import { useNavigate } from "react-router-dom";
+import { Header } from "../../layout/Header";
+import { Card } from "../../layout/Card";
 
-// const TransactionsApp = React.lazy(() => import("transactions/App"));
-// const AnalyticsApp = React.lazy(() => import("analytics/App"));
 
 interface Transaction {
   type: 'income' | 'outcome';
   amount: number;
 }
 
-export default function App() {
+export default function Home() {
   const { transactions } = useTransactionStore();
+  const navigate = useNavigate();
 
   const balance = transactions.reduce((acc: number, curr: Transaction) => {
     return curr.type === "income" ? acc + curr.amount : acc - curr.amount;
@@ -25,7 +26,12 @@ export default function App() {
         <div className={styles.headerWrapper}>
           <Header userName="João" balance={balance} />
         </div>
-
+        <button
+          onClick={() => navigate("/transactions")}
+          className={styles.transactionsButton}
+        >
+          Ver Transações
+        </button>
         <section className={styles.content}>
           <Card title="Análises Financeiras">
             <Suspense fallback={<p>Carregando análises...</p>}>
