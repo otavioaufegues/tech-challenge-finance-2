@@ -4,8 +4,19 @@ import './styles.css';
 
 const ITEMS_PER_PAGE = 10;
 
-export const TransactionList = () => {
-  const { transactions, removeTransaction } = useTransactionStore();
+interface Transaction {
+  id: string;
+  description: string;
+  amount: number;
+  type: string;
+}
+
+interface TransactionListProps {
+  transactions: Transaction[];
+}
+
+export const TransactionList = ({ transactions }: TransactionListProps) => {
+  const { removeTransaction } = useTransactionStore();
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const loaderRef = useRef<HTMLDivElement>(null);
 
