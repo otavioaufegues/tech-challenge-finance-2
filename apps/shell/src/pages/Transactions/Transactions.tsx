@@ -20,7 +20,7 @@ export default function Transactions() {
             </button>
             <div className={styles.container}>
                 <section className={styles.content}>
-                    <Card title="Análises Financeiras">
+                    <Card>
                         <Suspense fallback={<p>Carregando análises...</p>}>
                             <TransactionsApp />
                         </Suspense>

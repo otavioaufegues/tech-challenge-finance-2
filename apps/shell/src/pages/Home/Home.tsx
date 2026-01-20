@@ -32,13 +32,6 @@ export default function Home() {
         >
           Ver Transações
         </button>
-        <section className={styles.content}>
-          <Card title="Análises Financeiras">
-            <Suspense fallback={<p>Carregando análises...</p>}>
-              {/* <AnalyticsApp /> */}
-            </Suspense>
-          </Card>
-        </section>
       </div>
     </main>
   );

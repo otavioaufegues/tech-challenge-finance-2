@@ -17,3 +17,10 @@
   font-size: 18px;
   color: #334155;
 }
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: #333;
+    color: #f1f5f9;
+  }
+}

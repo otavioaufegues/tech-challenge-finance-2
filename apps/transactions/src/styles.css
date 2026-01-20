@@ -35,3 +35,27 @@
   min-width: 140px;
   outline: none;
 }
+
+@media (prefers-color-scheme: dark) {
+  .filter-section {
+    background-color: #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .search-input,
+  .filter-select {
+    background-color: #444;
+    border-color: #555;
+    color: #e0e0e0;
+  }
+
+  .search-input::placeholder {
+    color: #999;
+  }
+
+  .search-input:focus,
+  .filter-select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  }
+}
