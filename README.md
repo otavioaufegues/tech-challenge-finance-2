@@ -38,7 +38,7 @@ Certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
 1.  **Clone o repositório:**
     ```bash
     https://github.com/otavioaufegues/tech-challenge-finance-2
-    cd finance-app
+    cd tech-challenge-finance-2
     ```
 
 
@@ -47,7 +47,7 @@ Certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
 
 Após o clone do projeto, você pode iniciar a aplicação.
 
-1.   **Rode os Cotainers**
+1.  **Rode os Cotainers**
     ```bash
     docker-compose up --build 
     ```
