@@ -41,7 +41,10 @@ Certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
     cd tech-challenge-finance-2
     ```
 
-
+2.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
 
 ### Execução
 
