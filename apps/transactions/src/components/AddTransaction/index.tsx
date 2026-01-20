@@ -8,6 +8,7 @@ export const AddTransaction = () => {
   const [description, setDescription] = useState('');
   const [amount, setAmount] = useState('');
   const [type, setType] = useState<'income' | 'expense'>('expense');
+  const [attachment, setAttachment] = useState<string>('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,17 +18,30 @@ export const AddTransaction = () => {
       description,
       amount: Number(amount),
       type,
+      attachment,
     });
 
     setIsOpen(false);
     setDescription('');
     setAmount('');
     setType('expense');
+    setAttachment('');
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setAttachment(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
     <>
-      <button onClick={() => setIsOpen(true)}>Adicionar Transação</button>
+      <button className="add-transaction-btn" onClick={() => setIsOpen(true)}>Adicionar Transação</button>
 
       {isOpen && (
         <div className="modal-overlay">
@@ -64,6 +78,15 @@ export const AddTransaction = () => {
                   <option value="income">Entrada</option>
                   <option value="expense">Saída</option>
                 </select>
+              </div>
+              <div className="form-group">
+                <label htmlFor="attachment">Anexo (Comprovante)</label>
+                <input
+                  id="attachment"
+                  type="file"
+                  accept="image/*,application/pdf"
+                  onChange={handleFileChange}
+                />
               </div>
               <div className="modal-actions">
                 <button type="button" onClick={() => setIsOpen(false)}>

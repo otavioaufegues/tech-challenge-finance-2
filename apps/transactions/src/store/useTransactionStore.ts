@@ -7,6 +7,7 @@ export interface Transaction {
   amount: number;
   type: "income" | "expense";
   date: string;
+  attachment?: string;
 }
 
 interface TransactionState {
