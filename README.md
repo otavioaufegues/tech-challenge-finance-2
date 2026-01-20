@@ -1,60 +1,139 @@
-# Tech Challenge Finance App 2
+Tech Challenge – Finance App 2
+==============================
 
-Aplicação de gerenciamento financeiro desenvolvida com React.js em arquitetura de micro frontends, utilizando Module Federation.
+Aplicação de gerenciamento financeiro desenvolvida em **React** utilizando **arquitetura de micro frontends** com **Module Federation**, organizada em um **monorepo** e preparada para execução em **containers Docker**.
 
-Esta aplicação está pronta para rodar em containers Docker.
+O projeto simula um ecossistema de aplicações independentes que se integram através de um _app shell_, permitindo escalabilidade, isolamento de responsabilidades e evolução independente dos módulos.
 
-## ✨ Funcionalidades
+🧩 Arquitetura
+--------------
 
-*   **Registro de Transações:** Adicione facilmente suas despesas e receitas com detalhes como valor, data, descrição e categoria.
-*   **Anexos:** Adicione comprovantes as transações.
-*   **Visão Geral do Saldo:** Acompanhe seu saldo atual e veja a evolução das suas finanças ao longo do tempo.
-*   **Relatórios e Gráficos:** Visualize seus dados financeiros através de relatórios e gráficos claros, identificando padrões de gastos e oportunidades de economia.
-*   **Filtro e busca de transações:** Filtre e busque transações registradas de forma faácil e rápida.
+O projeto segue o padrão de **Micro Frontends**, onde cada aplicação possui responsabilidade bem definida:
 
-## 🚀 Tecnologias Utilizadas
+*   **Shell** Aplicação principal responsável pela orquestração, layout base e navegação entre os micro frontends.
+    
+*   **Transactions** Micro frontend responsável pelo gerenciamento de transações financeiras (receitas e despesas).
+    
+*   **Analytics** Micro frontend responsável por exibir relatórios, gráficos e análises financeiras.
+    
 
-Este projeto foi desenvolvido utilizando as seguintes tecnologias:
+A comunicação entre os micro frontends é feita via **Module Federation**, permitindo o carregamento dinâmico de módulos e o compartilhamento de dependências.
 
-*   **Node.js**: Ambiente de execução JavaScript no lado do servidor.
-*   **TypeScript**: Superset do JavaScript que adiciona tipagem estática, melhorando a robustez e manutenibilidade do código.
-*   **npm** (Node Package Manager) 
-*   **module federation** Module Federation 
-*   **Docker** Containerização com Docker
- 
+✨ Funcionalidades
+-----------------
 
-## ⚙️ Como Rodar a Aplicação
+*   **Registro de Transações**
+    
+    *   Cadastro de receitas e despesas
+        
+    *   Valor, data, descrição e categoria
+        
+*   **Anexos**
+    
+    *   Inclusão de comprovantes nas transações
+        
+*   **Visão Geral do Saldo**
+    
+    *   Acompanhamento do saldo atual
+        
+    *   Visualização da evolução financeira
+        
+*   **Relatórios e Gráficos**
+    
+    *   Análises visuais para melhor entendimento dos gastos
+        
+    *   Identificação de padrões e oportunidades de economia
+        
+*   **Filtro e Busca de Transações**
+    
+    *   Busca rápida e eficiente
+        
+    *   Filtros por tipo, categoria e período
+        
 
-Siga os passos abaixo para configurar e executar o `Finance App` em sua máquina local.
+🚀 Tecnologias Utilizadas
+-------------------------
+
+Este projeto foi desenvolvido utilizando:
+
+*   **Node.js** – Ambiente de execução JavaScript
+    
+*   **React.js** – Biblioteca para construção da interface
+    
+*   **TypeScript** – Tipagem estática para maior segurança e manutenibilidade
+    
+*   **Vite** – Build tool e dev server rápido
+    
+*   **Module Federation** – Integração entre micro frontends
+    
+*   **Docker** – Containerização das aplicações
+    
+*   **Docker Compose** – Orquestração dos containers
+    
+*   **npm** – Gerenciador de pacotes
+    
+
+📁 Estrutura do Projeto (Monorepo)
+----------------------------------
+
+```
+tech-challenge-finance-2/
+├── apps/
+│   ├── shell/         # App Shell (host)
+│   ├── transactions/  # Micro frontend de transações
+│   └── analytics/     # Micro frontend de relatórios
+├── docker-compose.yml
+├── package.json
+└── README.md
+```
+
+⚙️ Como Rodar a Aplicação
+-------------------------
 
 ### Pré-requisitos
 
-Certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
+Antes de iniciar, certifique-se de ter instalado:
 
-*   O Ambiente Docker deve estar instalado na maquina
+*   **Docker**
+    
+*   **Docker Compose**
+    
 
-### Instalação
+### 🔧 Instalação
 
-1.  **Clone o repositório:**
-    ```bash
-    https://github.com/otavioaufegues/tech-challenge-finance-2
-    cd tech-challenge-finance-2
-    ```
+1.  git clone https://github.com/otavioaufegues/tech-challenge-finance-2cd tech-challenge-finance-2
+    
+2.  npm install
+    
 
-2.  **Instale as dependências:**
-    ```bash
-    npm install
-    ```
+### ▶️ Execução
 
-### Execução
+1.  docker-compose up --build
+    
+2.  http://localhost:5170
+    
 
-Após o clone do projeto, você pode iniciar a aplicação.
+O **Shell** será carregado inicialmente e os micro frontends serão importados dinamicamente conforme a navegação.
 
-1.  **Rode os Cotainers**
-    ```bash
-    docker-compose up --build 
-    ```
+🧪 Observações
+--------------
 
-2.  **Acesse a aplicação:**
-    Abra seu navegador e acesse `http://localhost:5170`
+*   Cada micro frontend pode ser desenvolvido e evoluído de forma independente.
+    
+*   O uso do Docker garante padronização do ambiente de desenvolvimento.
+    
+*   O projeto foi estruturado com foco em **boas práticas de arquitetura frontend**, escalabilidade e organização de código.
+    
 
+📌 Considerações Finais
+-----------------------
+
+Este projeto foi desenvolvido como parte de um **Tech Challenge**, com foco em:
+
+*   Arquitetura moderna de frontend
+    
+*   Separação de responsabilidades
+    
+*   Escalabilidade
+    
+*   Experiência de desenvolvimento
